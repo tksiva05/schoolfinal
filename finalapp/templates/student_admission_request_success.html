@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Centered Text</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0; /* Optional: Set a background color for the body */
+    }
+
+    .centered-text {
+      text-align: center;
+    }
+
+    h2 {
+      color: rgb(255, 0, 0); /* Change the text color to blue */
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      text-decoration: none;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="centered-text">
+    <h2>Admission request submitted successfully!</h2>
+    <a href="#" class="back-button" onclick="history.back()">Back</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Page</title>
+</head>
+<style>
+    body{
+        background-image: url("https://i.pinimg.com/originals/4e/e8/d9/4ee8d9fa13b7f773349bfa29cc18f859.jpg");
+        background-repeat:round;
+        background-size:cover;
+    }
+
+    *{
+        margin:0px;
+        padding: 0px;
+    }
+    body{
+        font-family: 'Nunito Sans', sans-serif;
+    }
+    @keyframes borderMove {
+    0% {
+        border-image-source: linear-gradient(45deg, #9e1479, #0e4b7d);
+    }
+    25% {
+        border-image-source: linear-gradient(45deg, #16588e, #881269);
+    }
+    50% {
+        border-image-source: linear-gradient(45deg, #3d1132, #041a2c);
+    }
+    75% {
+        border-image-source: linear-gradient(45deg, #0f4e81, #91036b4e);
+    }
+    100% {
+        border-image-source: linear-gradient(45deg, #f1b5e1, #d1e5f5);
+    }
+}
+
+    .cards {
+    position: relative;
+    width: 17%;
+    display: inline-block;
+    background-color: aliceblue;
+    border-radius: 10px;
+    margin: 55px;
+    box-shadow: 2px 2px 10px black;
+    overflow: hidden;
+    animation: moveCards 2s ease-in-out infinite;
+    border: 4px solid;
+    border-image: linear-gradient(45deg, #500f3e, #062a47);
+    border-image-slice: 1;  
+}
+
+.cards::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes moveCards {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes shine {
+    0% {
+        opacity: 0;
+        transform: rotate(-0deg) translateX(-0%);
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(-0deg) translateX(0%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(-0deg) translateX(-0%);
+    }
+}
+
+.image img {
+    width: 100%;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image img:hover {
+    transform: scale(1.1);
+}
+.title {
+    text-align: center;
+    padding: 5px;
+    font-size: 5em; /* Adjust the font size as needed */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+}
+    .des{
+        text-align: center;
+        padding: 4px;
+    }
+    button {
+    background: linear-gradient(to right, #09931e, #00BFFF);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+button:hover {
+    color: yellow; /* Change the color on hover to make it brighter */
+}
+
+button:active {
+    transform: translateY(-3px); /* Add the jumping effect on click */
+}
+
+@keyframes shine {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.9); /* Increase the shadow size for the shining effect */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    }
+}
+
+button:hover {
+    background-color: green;
+    color: black;
+    animation: shine 1s infinite; /* Use the shine animation on hover */
+}
+
+.title {
+    margin-top: 5%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.title h1 {
+    color: rgb(12, 79, 212);
+    font-size: 50px;
+}
+
+.title, .title * {
+    font-size: 5em; /* You can adjust the multiplier to increase or decrease the size */
+}
+
+.logout-link {
+        text-decoration: none;
+        color: #fff;  /* Set your desired text color */
+        background-color: #dc3545;  /* Set your desired background color */
+        padding: 20px 20px;
+        border-radius: 5px;
+        margin-top: 50%;
+    }
+</style>
+<body>
+    <br><a href="{% url 'finalapp:teacher_logout' %}" class="logout-link">Logout</a>
+    <div class="title">
+        <h1>Staff Room</h1>
+    </div>
+    <div class="cards">
+        <div class="image">                                                                                   
+            <img src="https://tse4.mm.bing.net/th?id=OIP.UfnOQvB-657K1sd_RuvDigAAAA&pid=Api&P=0&h=220" width="300" height="260">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:student_details' %}"><button>Student Details</button></a>
+        </div>
+    </div>
+    <div class="cards">
+        <div class="image" style="float:left">
+            <img src="https://www.iconshock.com/image/SunnyDay/Education/attendance_list" width="300" height="260">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:attendance_form' %}"><button>Take Attendance </button></a>
+        </div>
+    </div>
+    <div class="cards">
+        <div class="image" style="float:left">
+            <img src="https://media.istockphoto.com/id/1059233806/vector/man-hold-attendance-clipboard-with-checklist-questionnaire-survey-clipboard-task-list-flat.jpg?s=612x612&w=0&k=20&c=Yv3g79R_g5mMliBx4McY2Xt0k552tVZ0xHbIBO2cMx8="  width="300" height="260">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:view_attendance' %}"><button>View Attendance List </button></a>
+        </div>
+    </div>
+    <div class="cards">
+        <div class="image" style="float:left">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS77uGOR2xEOdKs6GZEVtAMqmk8uN40qkGtzQ&usqp=CAU" width="300" height="260">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:upload_question_paper' %}"><button>Upload Questions </button></a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="image" style="float:left">
+            <img src="https://w7.pngwing.com/pngs/628/387/png-transparent-computer-icons-business-exit-miscellaneous-blue-angle.png"  width="300" height="260">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:leave_request' %}"><button>Apply for leave</button></a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="image" style="float:left">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU4Ow7x5ANMjVH-hfCXl3PAWHoC00xaCBVP37oVQhSYdFmsKu2wOGDCJJKYzMuEiTVnJ0&usqp=CAU"  width="300" height="260">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:view_leave_requests_table' %}"><button>Updates of Leave</button></a>
+        </div>
+    </div>
+    
+    <div class="cards">
+        <div class="image" style="float:left">
+            <img src="https://atlas-content-cdn.pixelsquid.com/stock-images/icon-notification-blue-computer-rvn4RMC-600.jpg" width="300" height="260">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:add_notice' %}"><button>Notice</button></a>
+        </div>
+    </div>
+    
+    <div class="cards">
+        <div class="image" style="float:left">
+            <img src="https://media.istockphoto.com/photos/results-picture-id481104485?k=6&m=481104485&s=170667a&w=0&h=VavVox8wvL6mULL_wumotkGPf9nKJNdm8h3wmyYYiWU=" width="300" height="260">
+        </div>
+        <div class="des">
+            <a href="{% url 'finalapp:upload_results' %}"><button>Upload Results</button></a>
+        </div>
+    </div>
+</body>
+</html>

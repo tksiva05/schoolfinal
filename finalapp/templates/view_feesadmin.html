@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Fees</title>
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 70%;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #4B0082;
+        text-decoration: underline;
+        margin-bottom: 20px;
+    }
+
+    .info-box {
+        border: 2px solid #4B0082;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+        margin: 5px 0;
+        color: #333;
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 15px;
+        background-color: #6A5ACD;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    a:hover {
+        background-color: #4B0082;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px dashed #ccc;
+        margin: 20px 0;
+    }
+    p{
+        font-weight: 700;
+        font-style: oblique;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>View Fees</h1>
+        {% for fee in fees %}
+        <div class="info-box">
+            <p>Class: {{ fee.class_name }}</p>
+            <p>Amount: {{ fee.amount }}</p>
+        </div>
+        {% endfor %}
+        <a href="#" class="back-button" onclick="history.back()">Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Admission Requests</title>
+<head>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #fff;
+            border: 2px solid #4285f4;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #4285f4;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0f62fe;
+            border-color: #0f62fe;
+        }
+
+        center {
+            text-align: center;
+        }
+
+        h1 {
+            color: #4285f4; /* Heading color */
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 28px;
+            border-bottom: 2px solid #4285f4;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .admission-request-container {
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .admission-request-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .admission-request-table th,
+        .admission-request-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .admission-request-table th {
+            background-color: #f2f2f2;
+        }
+
+        .admission-request-row:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="back-button" onclick="history.back()">Back</a>
+    <center>
+        <h1>Student Admission Requests</h1>
+        <div class="admission-request-container">
+            <table class="admission-request-table">
+                <tr>
+                    <th>Parent Name</th>
+                    <th>Student Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Grade</th>
+                </tr>
+                {% for admission_request in admission_requests %}
+                    <tr class="admission-request-row">
+                        <td>{{ admission_request.student_form.parent_name }}</td>
+                        <td>{{ admission_request.student_form.first_name }} {{ admission_request.student_form.last_name }}</td>
+                        <td>{{ admission_request.student_form.gender }}</td>
+                        <td>{{ admission_request.student_form.enter_dob }}</td>
+                        <td>{{ admission_request.student_form.enter_email }}</td>
+                        <td>{{ admission_request.student_form.phone_number }}</td>
+                        <td>{{ admission_request.student_form.address }}</td>
+                        <td>{{ admission_request.student_form.grade }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+</body>

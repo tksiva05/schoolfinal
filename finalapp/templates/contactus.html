@@ -1,0 +1,104 @@
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactus</title>
+</head>
+  <style>
+    /* Style for the form container */
+    .form-container {
+      width: 60%; /* Adjust the width as needed */
+      margin: auto;
+      margin-top: 100px;
+      padding: 30px;
+      background-color: #eaeaea; /* Updated background color */
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      font-family: Arial, sans-serif; /* Changed font family */
+    }
+
+    /* Style for the headers */
+    h2 {
+      color: #2c3e50; /* Changed header color */
+      text-align: center;
+      margin-bottom: 25px; /* Increased margin */
+      font-size: 28px; /* Increased font size */
+    }
+
+    h3 {
+      color: #555; /* Changed subheader color */
+      text-align: center;
+      margin-bottom: 35px; /* Increased margin */
+      font-size: 20px; /* Increased font size */
+    }
+
+    /* Style for the form elements */
+    form {
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: calc(100% - 20px); /* Adjusted input width */
+      padding: 12px;
+      margin-bottom: 20px; /* Increased margin */
+      border: 1px solid #ddd; /* Adjusted border color */
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 16px; /* Increased font size */
+    }
+
+    button[type="submit"] {
+      background-color: #3498db; /* Changed submit button background color */
+      color: #fff; /* Changed submit button text color */
+      padding: 14px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 18px; /* Increased font size */
+      transition: background-color 0.3s ease;
+    }
+
+    button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      text-decoration: none;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+<a href="#" class="back-button" onclick="history.back()">Back</a>
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <h3>Send Us Your Valuable Feedback!</h3>
+    <form method="post" action="">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name">
+      <br>
+      <input type="email" name="email" placeholder="Your Email">
+      <br>
+      <textarea name="message" placeholder="Your Message" rows="6"></textarea>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+{% endblock %}
